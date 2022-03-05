@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "@/components/HelloWorld.vue";
-import type { Show } from "../../server/src/shows/entities/show.entity";
+import type { Show } from "backend/shows/entities/show.entity";
 import { ref } from "vue";
 
 const shows = ref<Show[]>([]);
