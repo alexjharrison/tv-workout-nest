@@ -4,7 +4,8 @@
   "description": "Workout while watching tv",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "cd vue && npm i && cd ../server && npm i && cd ../",
+    "start": "concurrently \"cd server && npm run start:dev\" \"cd vue && npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/alexjharrison/tv-workout-nest/issues"
   },
-  "homepage": "https://github.com/alexjharrison/tv-workout-nest#readme"
+  "homepage": "https://github.com/alexjharrison/tv-workout-nest#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
 }
