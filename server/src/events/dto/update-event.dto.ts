@@ -6,13 +6,13 @@ import { CreateEventDto } from './create-event.dto';
 export class UpdateEventDto extends PartialType(CreateEventDto) {
   @IsString()
   // @IsOptional()
-  title: string;
+  title?: string;
 
   @IsEnum(EventFrequency)
   // @IsOptional()
-  frequency: EventFrequency;
+  frequency?: EventFrequency;
 
   @IsUUID()
   // @IsOptional()
-  showId: string;
+  showId?: string;
 }

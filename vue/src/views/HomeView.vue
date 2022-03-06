@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import TheWelcome from "@/components/TheWelcome.vue";
+import { useApi } from "@/composables/useApi";
+
+const { shows, exercises } = useApi();
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <ul>
+      <li v-for="show in shows" :key="show.id">{{ show.title }}</li>
+    </ul>
+    <ul>
+      <li v-for="exercise in exercises" :key="exercise.id">
+        {{ exercise.title }}
+      </li>
+    </ul>
   </main>
 </template>

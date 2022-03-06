@@ -6,9 +6,9 @@ import { CreateExerciseDto } from './create-exercise.dto';
 export class UpdateExerciseDto extends PartialType(CreateExerciseDto) {
   @IsString()
   // @IsOptional()
-  title: string;
+  title?: string;
 
   @IsEnum(ExerciseDifficulty)
   // @IsOptional()
-  difficulty: ExerciseDifficulty;
+  difficulty?: ExerciseDifficulty;
 }
