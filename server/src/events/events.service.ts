@@ -18,8 +18,9 @@ export class EventsService {
     const event = this.eventsRepository.create(createEventDto);
 
     const show = await this.showsService.findOne(createEventDto.showId);
-
     event.show = show;
+
+    await this.eventsRepository.save(event);
     return event;
   }
 

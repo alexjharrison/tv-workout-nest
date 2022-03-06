@@ -12,7 +12,7 @@ import { EventsModule } from './events/events.module';
       type: 'better-sqlite3',
       database: './sqlite/db.db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
     }),
     ShowsModule,
     ExercisesModule,
