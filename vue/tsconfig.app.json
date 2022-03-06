@@ -6,7 +6,8 @@
     "src/**/*.vue",
     "../server/src/**/*.entity.ts",
     "../server/src/**/*.interface.ts",
-    "../server/src/**/*.dto.ts"
+    "../server/src/**/*.dto.ts",
+    "../server/src/**/*.enum.ts"
   ],
   "exclude": [
     "src/**/__tests__/*"

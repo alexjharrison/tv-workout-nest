@@ -1,4 +1,7 @@
 {
+  "dependencies": {
+    "@nestjs/mapped-types": "*"
+  },
   "name": "tv-workout-nest",
   "version": "0.0.1",
   "description": "Workout while watching tv",
