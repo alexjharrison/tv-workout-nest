@@ -19,7 +19,7 @@ export class ShowsService {
   }
 
   findAll() {
-    return this.showsRepository.find();
+    return this.showsRepository.find({ order: { created_at: 'DESC' } });
   }
 
   async findOne(id: string) {
