@@ -4,6 +4,6 @@ import { CreateShowDto } from './create-show.dto';
 
 export class UpdateShowDto extends PartialType(CreateShowDto) {
   @IsString()
-  @IsOptional()
+  // @IsOptional()
   title: string;
 }

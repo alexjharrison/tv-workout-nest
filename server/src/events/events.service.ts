@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ShowsService } from 'src/shows/shows.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { EventsRepository } from './events.repository';
@@ -9,11 +10,16 @@ export class EventsService {
   constructor(
     @InjectRepository(EventsRepository)
     private eventsRepository: EventsRepository,
+
+    private readonly showsService: ShowsService,
   ) {}
 
   async create(createEventDto: CreateEventDto) {
     const event = this.eventsRepository.create(createEventDto);
-    await this.eventsRepository.save(event);
+
+    const show = await this.showsService.findOne(createEventDto.showId);
+
+    event.show = show;
     return event;
   }
 
@@ -30,8 +36,15 @@ export class EventsService {
   }
 
   async update(id: string, updateEventDto: UpdateEventDto) {
-    let event = await this.findOne(id);
-    event = { ...event, ...updateEventDto };
+    const event = await this.findOne(id);
+
+    const { frequency, title, showId } = updateEventDto;
+    const show = await this.showsService.findOne(showId);
+
+    event.frequency ||= frequency;
+    event.title ||= title;
+    event.show ||= show;
+
     await this.eventsRepository.save(event);
 
     return event;

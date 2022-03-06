@@ -1,14 +1,18 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsOptional, IsString, IsUUID } from 'class-validator';
 import { EventFrequency } from '../event-frequency.enum';
 import { CreateEventDto } from './create-event.dto';
 
 export class UpdateEventDto extends PartialType(CreateEventDto) {
   @IsString()
-  @IsOptional()
+  // @IsOptional()
   title: string;
 
   @IsEnum(EventFrequency)
-  @IsOptional()
+  // @IsOptional()
   frequency: EventFrequency;
+
+  @IsUUID()
+  // @IsOptional()
+  showId: string;
 }

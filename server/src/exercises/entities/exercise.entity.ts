@@ -13,10 +13,10 @@ export class Exercise {
   id: string;
 
   @CreateDateColumn()
-  created_at: string;
+  created_at: Date;
 
   @UpdateDateColumn()
-  updated_at: string;
+  updated_at: Date;
 
   @Column()
   title: string;

@@ -1,7 +1,9 @@
+import { Show } from 'src/shows/entities/show.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -13,14 +15,17 @@ export class Event {
   id: string;
 
   @CreateDateColumn()
-  created_at: string;
+  created_at: Date;
 
   @UpdateDateColumn()
-  updated_at: string;
+  updated_at: Date;
 
   @Column()
   title: string;
 
   @Column()
   frequency: EventFrequency;
+
+  @ManyToOne((_type) => Show, (show) => show.events)
+  show: Show;
 }

@@ -1,4 +1,4 @@
-import { IsEnum, IsString } from 'class-validator';
+import { IsEnum, IsString, IsUUID } from 'class-validator';
 import { EventFrequency } from '../event-frequency.enum';
 
 export class CreateEventDto {
@@ -7,4 +7,7 @@ export class CreateEventDto {
 
   @IsEnum(EventFrequency)
   frequency: EventFrequency;
+
+  @IsUUID()
+  showId: string;
 }

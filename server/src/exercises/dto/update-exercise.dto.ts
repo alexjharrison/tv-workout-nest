@@ -5,10 +5,10 @@ import { CreateExerciseDto } from './create-exercise.dto';
 
 export class UpdateExerciseDto extends PartialType(CreateExerciseDto) {
   @IsString()
-  @IsOptional()
+  // @IsOptional()
   title: string;
 
   @IsEnum(ExerciseDifficulty)
-  @IsOptional()
+  // @IsOptional()
   difficulty: ExerciseDifficulty;
 }
